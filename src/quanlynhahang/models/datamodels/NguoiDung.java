@@ -1,6 +1,6 @@
 package quanlynhahang.models.datamodels;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class NguoiDung {
     private String email;
@@ -14,11 +14,12 @@ public class NguoiDung {
     private String diaChi;
     private boolean quanTriVien;
     private boolean kichHoat;
+    private boolean choPhep;
 
-    public  NguoiDung() {
+    public NguoiDung() {
     }
 
-    public NguoiDung(String email, String hoDem, String ten, String matKhau, Date ngaySinh, boolean nu, String avatar, String dienThoai, String diaChi, boolean quanTriVien, boolean kichHoat) {
+    public NguoiDung(String email, String hoDem, String ten, String matKhau, Date ngaySinh, boolean nu, String avatar, String dienThoai, String diaChi, boolean quanTriVien, boolean kichHoat, boolean choPhep) {
         this.email = email;
         this.hoDem = hoDem;
         this.ten = ten;
@@ -30,6 +31,7 @@ public class NguoiDung {
         this.diaChi = diaChi;
         this.quanTriVien = quanTriVien;
         this.kichHoat = kichHoat;
+        this.choPhep = choPhep;
     }
 
     public String getEmail() {
@@ -118,5 +120,13 @@ public class NguoiDung {
 
     public void setKichHoat(boolean kichHoat) {
         this.kichHoat = kichHoat;
+    }
+
+    public boolean isChoPhep() {
+        return choPhep;
+    }
+
+    public void setChoPhep(boolean choPhep) {
+        this.choPhep = choPhep;
     }
 }

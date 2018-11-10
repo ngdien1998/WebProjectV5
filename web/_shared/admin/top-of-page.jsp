@@ -8,22 +8,19 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Quản lý người dùng</title>
+    <title>Quản lý món ăn</title>
     <!-- plugins:css -->
-    <link rel="stylesheet"
-            href="<%request.getServletPath();%>/assests/node_modules/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet"
-            href="<%request.getServletPath();%>/assests/node_modules/flag-icon-css/css/flag-icon.min.css">
-    <link rel="stylesheet"
-            href="<%request.getServletPath();%>/assests/node_modules/perfect-scrollbar/css/perfect-scrollbar.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() + "/" %>../../assests/node_modules/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() + "/" %>../../assests/node_modules/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() + "/" %>../../assests/node_modules/perfect-scrollbar/css/perfect-scrollbar.css">
     <!-- endinject -->
     <!-- plugin css for this page -->
-    <link rel="stylesheet" href="<%request.getServletPath();%>/assests/node_modules/jvectormap/jquery-jvectormap.css"/>
+    <link rel="stylesheet" href="<%= request.getContextPath() + "/" %>../../assests/node_modules/jvectormap/jquery-jvectormap.css"/>
     <!-- End plugin css for this page -->
     <!-- inject:css -->
-    <link rel="stylesheet" href="<%request.getServletPath();%>/assests/css/style.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() + "/" %>../../assests/css/style.css">
     <!-- endinject -->
-    <link rel="shortcut icon" href="<%request.getServletPath();%>/assests/images/favicon.png"/>
+    <link rel="shortcut icon" href="<%= request.getContextPath() + "/" %>../../assests/images/favicon.png"/>
     <style>
         .results tr[visible='false'],
         .no-result {
@@ -59,7 +56,7 @@
             <a class="navbar-brand brand-logo" href="" style="color: #616161;">
                 <b>ADMINISTRATOR</b>
             </a>
-            <a class="navbar-brand brand-logo-mini" href=""><img src="assests/images/logo.png" alt="logo"/></a>
+            <a class="navbar-brand brand-logo-mini" href=""><img src="<%= request.getContextPath() + "/" %>../../assests/images/logo.png" alt="logo"/></a>
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-stretch">
             <button class="navbar-toggler navbar-toggler align-self-center mr-2" type="button" data-toggle="minimize">
@@ -82,7 +79,7 @@
                         <h6 class="p-3 mb-0 text-center">Thông báo</h6>
                         <a class="dropdown-item preview-item">
                             <div class="preview-thumbnail">
-                                <img src="assests/images/faces/face4.jpg" class="profile-pic">
+                                <img src="<%= request.getContextPath() + "/" %>../../assests/images/faces/face4.jpg" class="profile-pic">
                             </div>
                             <div class="preview-item-content">
                                 <p class="mb-0">Dany Miles <span class="text-small text-muted">commented on your
@@ -91,7 +88,7 @@
                         </a>
                         <a class="dropdown-item preview-item">
                             <div class="preview-thumbnail">
-                                <img src="assests/images/faces/face3.jpg" class="profile-pic">
+                                <img src="<%= request.getContextPath() + "/" %>../../assests/images/faces/face3.jpg" class="profile-pic">
                             </div>
                             <div class="preview-item-content">
                                 <p class="mb-0">James <span class="text-small text-muted">posted a photo on your
@@ -100,7 +97,7 @@
                         </a>
                         <a class="dropdown-item preview-item">
                             <div class="preview-thumbnail">
-                                <img src="assests/images/faces/face2.jpg" class="profile-pic">
+                                <img src="<%= request.getContextPath() + "/" %>../../assests/images/faces/face2.jpg" class="profile-pic">
                             </div>
                             <div class="preview-item-content">
                                 <p class="mb-0">Alex <span class="text-small text-muted">just mentioned you in his
@@ -173,7 +170,7 @@
                 <li class="nav-item nav-profile">
                     <a href="#" class="nav-link">
                             <span class="nav-profile-image">
-                                <img src="assests/images/faces/face1.jpg" alt="profile">
+                                <img src="<%= request.getContextPath() + "/" %>../../assests/images/faces/face1.jpg" alt="profile">
                                 <span class="login-status online"></span>
                                 <!--change to offline or busy as needed-->
                             </span>
@@ -225,8 +222,8 @@
                     <div class="collapse" id="page-layouts">
                         <ul class="nav flex-column sub-menu">
                             <li class="nav-item d-none d-lg-block"><a class="nav-link"
-                                    href="admin-nguoi-dung.html">Người Dùng</a></li>
-                            <li class="nav-item"><a class="nav-link" href="admin-quan-tri-vien.html">Quản Trị Viên</a>
+                                    href="/admin/nguoi-dung">Người Dùng</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/admin/quan-tri-vien">Quản Trị Viên</a>
                             </li>
                         </ul>
                     </div>
@@ -255,141 +252,3 @@
         <div class="main-panel">
             <div class="content-wrapper">
                 <!-- Hiện content ở chổ này -->
-                <div class="card">
-                    <div class="card-body">
-                        <h2 class="card-title">Quản lý người dùng</h2>
-                        <div class="row">
-                            <div class="col-sm-12 col-md-6">
-                            </div>
-                            <div class="col-sm-12 col-md-6">
-                                <input type="search" class="form-control" placeholder="Tìm kiếm người dùng"
-                                        aria-controls="order-listing">
-                            </div>
-                        </div>
-                        <table class="table table-hover" style="margin: 16px 0;">
-                            <thead>
-                            <tr>
-                                <th>Ảnh</th>
-                                <th>Tên</th>
-                                <th>Email</th>
-                                <th>Ngày sinh</th>
-                                <th>Nữ</th>
-                                <th>Điện thoại</th>
-                                <th>Trạng thái</th>
-                                <th></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <c:forEach var="nguoiDung" items="${nguoiDungs}">
-                                <tr>
-                                    <td>
-                                        <c:choose>
-                                            <c:when test="${!nguoiDung.avatar.equals(\"\")}">
-                                                <img src="${nguoiDung.avatar}"/>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <img src=""/>
-                                            </c:otherwise>
-                                        </c:choose>
-                                    </td>
-                                    <td>${nguoiDung.hoDem} ${nguoiDung.ten}</td>
-                                    <td>${nguoiDung.email}</td>
-                                    <td>${nguoiDung.ngaySinh}</td>
-                                    <td>
-                                        <c:choose>
-                                            <c:when test="${nguoiDung.nu}">
-                                                <c:out value="Nữ"/>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <c:out value="Nam"/>
-                                            </c:otherwise>
-                                        </c:choose>
-                                    </td>
-                                    <td>${nguoiDung.dienThoai}</td>
-                                    <td>
-                                        <c:choose>
-                                            <c:when test="${nguoiDung.kichHoat}">
-                                                <c:out value="Kích hoạt"/>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <c:out value="Khóa"/>
-                                            </c:otherwise>
-                                        </c:choose>
-                                    </td>
-                                    <td>
-                                        <a href="/admin/xem-nguoi-dung?email=${nguoiDung.email}">Xem</a> |
-                                        <a href="/admin/sua-nguoi-dung?email=${nguoiDung.email}">Sửa</a>
-                                    </td>
-                                </tr>
-                            </c:forEach>
-                            </tbody>
-                        </table>
-                        <div class="row">
-                            <nav>
-                                <ul class="pagination flat pagination-primary">
-                                    <li class="page-item"><a class="page-link" href="#"><i
-                                            class="mdi mdi-chevron-left"></i></a></li>
-                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                    <li class="page-item"><a class="page-link" href="#"><i
-                                            class="mdi mdi-chevron-right"></i></a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-                <!-- Kết thúc content -->
-            </div>
-            <!-- content-wrapper ends -->
-            <!-- partial:partials/_footer.html -->
-        </div>
-        <!-- main-panel ends -->
-    </div>
-    <!-- page-body-wrapper ends -->
-    <footer class="footer">
-        <div class="container-fluid clearfix">
-                <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2018 <a
-                        href="#">Quản lý nhà hàng và orderfood online.</a>
-                    All rights reserved.</span>
-        </div>
-    </footer>
-    <!-- partial -->
-</div>
-<h1>${sessionScope.testNguoiDung.email}</h1>
-<h1>${sessionScope.testNguoiDung.ten}</h1>
-<h1>${sessionScope.testNguoiDung.hoDem}</h1>
-<h1>${sessionScope.testNguoiDung.nu}</h1>
-<h1>${sessionScope.testNguoiDung.dienThoai}</h1>
-<h1>${sessionScope.testNguoiDung.choPhep}</h1>
-<h1>${sessionScope.testNguoiDung.diaChi}</h1>
-<h1>${sessionScope.testNguoiDung.matKhau}</h1>
-<h1>${sessionScope.testNguoiDung.ngaySinh}</h1>
-<h1>${sessionScope.error}</h1>
-<!-- container-scroller -->
-
-<!-- plugins:js -->
-<script src="<%request.getServletPath();%>/assests/node_modules/jquery/dist/jquery.min.js"></script>
-<script src="<%request.getServletPath();%>/assests/node_modules/popper.js/dist/umd/popper.min.js"></script>
-<script src="<%request.getServletPath();%>/assests/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="<%request.getServletPath();%>/assests/node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
-<!-- endinject -->
-<!-- Plugin js for this page-->
-<script src="<%request.getServletPath();%>/assests/node_modules/jquery-sparkline/jquery.sparkline.min.js"></script>
-<!-- End plugin js for this page-->
-<!-- inject:js -->
-<script src="<%request.getServletPath();%>/assests/js/off-canvas.js"></script>
-<script src="<%request.getServletPath();%>/assests/js/hoverable-collapse.js"></script>
-<script src="<%request.getServletPath();%>/assests/js/misc.js"></script>
-<script src="<%request.getServletPath();%>/assests/js/settings.js"></script>
-<script src="<%request.getServletPath();%>/assests/js/todolist.js"></script>
-<!-- endinject -->
-<!-- Custom js for this page-->
-<script src="<%request.getServletPath();%>/assests/js/todolist.js"></script>
-<script src="<%request.getServletPath();%>/assests/js/dashboard.js"></script>
-<!-- End custom js for this page-->
-
-</body>
-
-</html>

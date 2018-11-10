@@ -9,10 +9,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-@WebServlet(name = "SuaNguoiDungServlet", urlPatterns = { "/admin/sua-nguoi-dung"} )
+@WebServlet(name = "SuaNguoiDungServlet", urlPatterns = {"/admin/sua-nguoi-dung"})
 public class SuaNguoiDungServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
@@ -38,9 +42,36 @@ public class SuaNguoiDungServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            String choPhep = request.getParameter("chkAllow");
-        } catch (Exception e) {
+            request.setCharacterEncoding("utf-8");
+            response.setContentType("text/html;charset=UTF-8");
 
+            NguoiDung nguoiDung = new NguoiDung();
+            nguoiDung.setEmail(request.getParameter("txtEmail"));
+            nguoiDung.setHoDem(request.getParameter("txtHoDem"));
+            nguoiDung.setTen(request.getParameter("txtTen"));
+            nguoiDung.setMatKhau(request.getParameter("txtMatKhau"));
+            nguoiDung.setNu(request.getParameter("radNu") != null);
+            if (request.getParameter("dteNgaySinh") != null) {
+                Date ngaySinh = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("dteNgaySinh"));
+                nguoiDung.setNgaySinh(new java.sql.Date(ngaySinh.getTime()));
+            }
+            nguoiDung.setAvatar(request.getParameter("txtAvatar"));
+            nguoiDung.setDienThoai(request.getParameter("txtDienThoai"));
+            nguoiDung.setDiaChi(request.getParameter("txtDiaChi"));
+            nguoiDung.setChoPhep(request.getParameter("chkChoPhep") != null);
+            nguoiDung.setQuanTriVien(request.getParameter("chkLaQtv") != null);
+            nguoiDung.setKichHoat(request.getParameter("chkKichHoat") != null);
+
+            HttpSession testSession = request.getSession();
+            testSession.setAttribute("testNguoiDung", nguoiDung);
+
+            NguoiDungService service = new NguoiDungService();
+            service.modify(nguoiDung);
+        } catch (ParseException | SQLException | ClassNotFoundException e) {
+            HttpSession error = request.getSession();
+            error.setAttribute("error", e.toString());
+            e.printStackTrace();
         }
+        response.sendRedirect("/admin/nguoi-dung");
     }
 }
