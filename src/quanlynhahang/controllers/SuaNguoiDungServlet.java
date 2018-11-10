@@ -40,7 +40,7 @@ public class SuaNguoiDungServlet extends HttpServlet {
         }
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
             request.setCharacterEncoding("utf-8");
             response.setContentType("text/html;charset=UTF-8");
@@ -62,14 +62,9 @@ public class SuaNguoiDungServlet extends HttpServlet {
             nguoiDung.setQuanTriVien(request.getParameter("chkLaQtv") != null);
             nguoiDung.setKichHoat(request.getParameter("chkKichHoat") != null);
 
-            HttpSession testSession = request.getSession();
-            testSession.setAttribute("testNguoiDung", nguoiDung);
-
             NguoiDungService service = new NguoiDungService();
             service.modify(nguoiDung);
         } catch (ParseException | SQLException | ClassNotFoundException e) {
-            HttpSession error = request.getSession();
-            error.setAttribute("error", e.toString());
             e.printStackTrace();
         }
         response.sendRedirect("/admin/nguoi-dung");

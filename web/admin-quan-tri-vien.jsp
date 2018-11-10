@@ -1,13 +1,15 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="_shared/admin/top-of-page.jsp" flush="true" />
+<title>Danh sách quản trị viên</title>
+<jsp:include page="_shared/admin/page-header.jsp" flush="true" />
 
 <div class="card">
     <div class="card-body">
         <h2 class="card-title">Quản lý quản trị viên</h2>
         <div class="row">
             <div class="col-sm-12 col-md-6">
-                <a href="admin-them-quan-tri-vien.html" class="btn btn-primary btn-rounded">Thêm mới</a>
+                <a href="/admin/them-quan-tri-vien" class="btn btn-primary btn-rounded">Thêm mới</a>
             </div>
             <div class="col-sm-12 col-md-6">
                 <input type="search" class="form-control" placeholder="Tìm kiếm quản trị viên"
@@ -18,106 +20,40 @@
             <thead>
             <tr>
                 <th>Ảnh</th>
-                <th>Tên</th>
+                <th width="150">Tên</th>
                 <th>Email</th>
                 <th>Ngày sinh</th>
-                <th>Nữ</th>
+                <th>Giới tính</th>
                 <th>Điện thoại</th>
-                <th>Trạng thái</th>
                 <th></th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td><img src="assests/images/faces/face1.jpg"/></td>
-                <td>Nguyễn Lê Điền</td>
-                <td>ngdien1998@gmail.com</td>
-                <td>22/11/1998</td>
-                <td>No</td>
-                <td>0967397916</td>
-                <td>Kích hoạt</td>
-                <td>
-                    <a href="admin-xem-quan-tri-vien.html?email=ngdien1998@gmail.com">Xem</a> |
-                    <a href="admin-sua-quan-tri-vien.html?email=ngdien1998@gmail.com">Sửa</a> |
-                    <a href="admin-xoa-quan-tri-vien.html?email=ngdien1998@gmail.com">Xóa</a> |
-                    <a href="admin-phan-quyen.html?email=ngdien1998@gmail.com">Phân quyền</a>
-                </td>
-            </tr>
-            <tr>
-                <td><img src="assests/images/faces/face1.jpg"/></td>
-                <td>Nguyễn Lê Điền</td>
-                <td>ngdien1998@gmail.com</td>
-                <td>22/11/1998</td>
-                <td>No</td>
-                <td>0967397916</td>
-                <td>Kích hoạt</td>
-                <td>
-                    <a href="admin-xem-quan-tri-vien.html?email=ngdien1998@gmail.com">Xem</a> |
-                    <a href="admin-sua-quan-tri-vien.html?email=ngdien1998@gmail.com">Sửa</a> |
-                    <a href="admin-xoa-quan-tri-vien.html?email=ngdien1998@gmail.com">Xóa</a> |
-                    <a href="admin-phan-quyen.html?email=ngdien1998@gmail.com">Phân quyền</a>
-                </td>
-            </tr>
-            <tr>
-                <td><img src="assests/images/faces/face1.jpg"/></td>
-                <td>Nguyễn Lê Điền</td>
-                <td>ngdien1998@gmail.com</td>
-                <td>22/11/1998</td>
-                <td>No</td>
-                <td>0967397916</td>
-                <td>Kích hoạt</td>
-                <td>
-                    <a href="admin-xem-quan-tri-vien.html?email=ngdien1998@gmail.com">Xem</a> |
-                    <a href="admin-sua-quan-tri-vien.html?email=ngdien1998@gmail.com">Sửa</a> |
-                    <a href="admin-xoa-quan-tri-vien.html?email=ngdien1998@gmail.com">Xóa</a> |
-                    <a href="admin-phan-quyen.html?email=ngdien1998@gmail.com">Phân quyền</a>
-                </td>
-            </tr>
-            <tr>
-                <td><img src="assests/images/faces/face1.jpg"/></td>
-                <td>Nguyễn Lê Điền</td>
-                <td>ngdien1998@gmail.com</td>
-                <td>22/11/1998</td>
-                <td>No</td>
-                <td>0967397916</td>
-                <td>Kích hoạt</td>
-                <td>
-                    <a href="admin-xem-quan-tri-vien.html?email=ngdien1998@gmail.com">Xem</a> |
-                    <a href="admin-sua-quan-tri-vien.html?email=ngdien1998@gmail.com">Sửa</a> |
-                    <a href="admin-xoa-quan-tri-vien.html?email=ngdien1998@gmail.com">Xóa</a> |
-                    <a href="admin-phan-quyen.html?email=ngdien1998@gmail.com">Phân quyền</a>
-                </td>
-            </tr>
-            <tr>
-                <td><img src="assests/images/faces/face1.jpg"/></td>
-                <td>Nguyễn Lê Điền</td>
-                <td>ngdien1998@gmail.com</td>
-                <td>22/11/1998</td>
-                <td>No</td>
-                <td>0967397916</td>
-                <td>Kích hoạt</td>
-                <td>
-                    <a href="admin-xem-quan-tri-vien.html?email=ngdien1998@gmail.com">Xem</a> |
-                    <a href="admin-sua-quan-tri-vien.html?email=ngdien1998@gmail.com">Sửa</a> |
-                    <a href="admin-xoa-quan-tri-vien.html?email=ngdien1998@gmail.com">Xóa</a> |
-                    <a href="admin-phan-quyen.html?email=ngdien1998@gmail.com">Phân quyền</a>
-                </td>
-            </tr>
-            <tr>
-                <td><img src="assests/images/faces/face1.jpg"/></td>
-                <td>Nguyễn Lê Điền</td>
-                <td>ngdien1998@gmail.com</td>
-                <td>22/11/1998</td>
-                <td>No</td>
-                <td>0967397916</td>
-                <td>Kích hoạt</td>
-                <td>
-                    <a href="admin-xem-quan-tri-vien.html?email=ngdien1998@gmail.com">Xem</a> |
-                    <a href="admin-sua-quan-tri-vien.html?email=ngdien1998@gmail.com">Sửa</a> |
-                    <a href="admin-xoa-quan-tri-vien.html?email=ngdien1998@gmail.com">Xóa</a> |
-                    <a href="admin-phan-quyen.html?email=ngdien1998@gmail.com">Phân quyền</a>
-                </td>
-            </tr>
+            <c:forEach var="qtv" items="${requestScope.qtvs}">
+                <tr>
+                    <td>
+                        <c:if test="${qtv.avatar != null}">
+                            <img src="${qtv.avatar}" alt="QTV"/>
+                        </c:if>
+                    </td>
+                    <td><div class="text">${qtv.ten} ${qtv.hoDem}</div></td>
+                    <td><div class="text">${qtv.email}</div></td>
+                    <td>${qtv.ngaySinh}</td>
+                    <td>
+                        <c:choose>
+                            <c:when test="${qtv.nu}">Nữ</c:when>
+                            <c:otherwise>Nam</c:otherwise>
+                        </c:choose>
+                    </td>
+                    <td>${qtv.dienThoai}</td>
+                    <td>
+                        <a href="/admin/xem-quan-tri-vien?email=${qtv.email}">Xem</a> |
+                        <a href="/admin/sua-quan-tri-vien?email=${qtv.email}">Sửa</a> |
+                        <a href="/admin/xoa-quan-tri-vien?email=${qtv.email}">Xóa</a> |
+                        <a href="/admin/phan-quyen?email=${qtv.email}">Phân quyền</a>
+                    </td>
+                </tr>
+            </c:forEach>
             </tbody>
         </table>
         <div class="row">

@@ -11,17 +11,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
-@WebServlet(name = "QuanTriVienServlet", urlPatterns = { "/admin/quan-tri-vien" })
-public class QuanTriVienServlet extends HttpServlet {
+@WebServlet(name = "XemQuanTriVienServlet", urlPatterns = { "/admin/xem-quan-tri-vien" })
+public class XemQuanTriVienServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            String email = request.getParameter("email");
+            if (email == null) {
+                response.setStatus(400);
+                return;
+            }
             QuanTriVienService service = new QuanTriVienService();
-            ArrayList<NguoiDung> qtvs = service.getData();
-            request.setAttribute("qtvs", qtvs);
+            NguoiDung qtv = service.get(email);
+            if (qtv == null) {
+                response.setStatus(404);
+                return;
+            }
+            request.setAttribute("qtv", qtv);
 
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin-quan-tri-vien.jsp");
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin-xem-quan-tri-vien.jsp");
             dispatcher.forward(request, response);
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
