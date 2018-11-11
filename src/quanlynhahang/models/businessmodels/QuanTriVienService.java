@@ -7,6 +7,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**
+ * args[0] Email
+ * args[1] HoDem
+ * args[2] Ten
+ * args[3] MatKhau
+ * args[4] NgaySinh
+ * args[5] Nu
+ * args[6] Avatar
+ * args[7] DienThoai
+ * args[8] DiaChi
+ * args[9] LaQTV
+ * args[10] KichHoat
+ * args[11] ChoPhep
+ */
 public class QuanTriVienService extends ConnectDatabase implements Businesses<NguoiDung> {
     @Override
     public ArrayList<NguoiDung> getData() throws SQLException, ClassNotFoundException {
@@ -42,8 +56,32 @@ public class QuanTriVienService extends ConnectDatabase implements Businesses<Ng
     }
 
     @Override
-    public NguoiDung add(NguoiDung model) {
-        return null;
+    public int add(NguoiDung model) throws SQLException, ClassNotFoundException {
+        if (model == null) {
+            return 0;
+        }
+        openConnection();
+
+        String sql = "EXEC ThemNguoiDung ?,?,?,?,?,?,?,?,?,?,?,?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setEscapeProcessing(true);
+        statement.setQueryTimeout(90);
+        statement.setString(1, model.getEmail());
+        statement.setString(2, model.getHoDem());
+        statement.setString(3, model.getTen());
+        statement.setString(4, model.getMatKhau());
+        statement.setDate(5, model.getNgaySinh());
+        statement.setBoolean(6, model.isNu());
+        statement.setString(7, model.getAvatar());
+        statement.setString(8, model.getDienThoai());
+        statement.setString(9, model.getDiaChi());
+        statement.setBoolean(10, model.isQuanTriVien());
+        statement.setBoolean(11, model.isKichHoat());
+        statement.setBoolean(12, model.isChoPhep());
+
+        int rowAffected = statement.executeUpdate();
+        closeConnection();
+        return rowAffected;
     }
 
     @Override
@@ -53,26 +91,12 @@ public class QuanTriVienService extends ConnectDatabase implements Businesses<Ng
 
     @Override
     public int modify(NguoiDung model) throws SQLException, ClassNotFoundException {
-        /**
-         * args[0] Email
-         * args[1] HoDem
-         * args[2] Ten
-         * args[3] MatKhau
-         * args[4] NgaySinh
-         * args[5] Nu
-         * args[6] Avatar
-         * args[7] DienThoai
-         * args[8] DiaChi
-         * args[9] LaQTV
-         * args[10] KichHoat
-         * args[11] ChoPhep
-         */
         if (model == null) {
             return 0;
         }
         openConnection();
 
-        String sql = "EXEC ThemNguoiDung ?,?,?,?,?,?,?,?,?,?,?,?";
+        String sql = "EXEC SuaNguoiDung ?,?,?,?,?,?,?,?,?,?,?,?";
         PreparedStatement  statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);

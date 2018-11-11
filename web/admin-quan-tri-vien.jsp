@@ -20,7 +20,7 @@
             <thead>
             <tr>
                 <th>Ảnh</th>
-                <th width="150">Tên</th>
+                <th>Tên</th>
                 <th>Email</th>
                 <th>Ngày sinh</th>
                 <th>Giới tính</th>
@@ -36,8 +36,8 @@
                             <img src="${qtv.avatar}" alt="QTV"/>
                         </c:if>
                     </td>
-                    <td><div class="text">${qtv.ten} ${qtv.hoDem}</div></td>
-                    <td><div class="text">${qtv.email}</div></td>
+                    <td>${qtv.ten} ${qtv.hoDem}</td>
+                    <td>${qtv.email}</td>
                     <td>${qtv.ngaySinh}</td>
                     <td>
                         <c:choose>

@@ -7,6 +7,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**
+ * args[0] Email
+ * args[1] HoDem
+ * args[2] Ten
+ * args[3] MatKhau
+ * args[4] NgaySinh
+ * args[5] Nu
+ * args[6] Avatar
+ * args[7] DienThoai
+ * args[8] DiaChi
+ * args[9] LaQTV
+ * args[10] KichHoat
+ * args[11] ChoPhep
+ */
 public class NguoiDungService extends ConnectDatabase implements Businesses<NguoiDung> {
 
     @Override
@@ -43,8 +57,8 @@ public class NguoiDungService extends ConnectDatabase implements Businesses<Nguo
     }
 
     @Override
-    public NguoiDung add(NguoiDung model) {
-        return null;
+    public int add(NguoiDung model) {
+        return 0;
     }
 
     @Override
@@ -54,20 +68,6 @@ public class NguoiDungService extends ConnectDatabase implements Businesses<Nguo
 
     @Override
     public int modify(NguoiDung model) throws SQLException, ClassNotFoundException {
-        /**
-         * args[0] Email
-         * args[1] HoDem
-         * args[2] Ten
-         * args[3] MatKhau
-         * args[4] NgaySinh
-         * args[5] Nu
-         * args[6] Avatar
-         * args[7] DienThoai
-         * args[8] DiaChi
-         * args[9] LaQTV
-         * args[10] KichHoat
-         * args[11] ChoPhep
-         */
         if (model == null) {
             return 0;
         }

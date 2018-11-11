@@ -12,7 +12,7 @@
         </p>
         <form class="forms-sample" action="/admin/sua-nguoi-dung" method="post">
             <div class="form-row">
-                <div class="col-12 col-sm-4">
+                <div class="col-12 col-sm-6">
                     <div class="form-group">
                         <label for="allow">Trạng thái tài khoản</label>
                         <div class="form-check form-check-flat">
@@ -24,19 +24,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-sm-4">
-                    <div class="form-group">
-                        <label for="allow">Quyền quản trị viên</label>
-                        <div class="form-check form-check-flat">
-                            <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" id="la-quan-tri-vien" name="chkLaQtv"
-                                        <c:if test="${requestScope.nguoiDung.quanTriVien}">checked</c:if> />
-                                Gán quyền quản trị viên
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-4">
+                <div class="col-12 col-sm-6">
                     <div class="form-group">
                         <label for="allow">Trạng thái hoạt động</label>
                         <div class="form-check form-check-flat">

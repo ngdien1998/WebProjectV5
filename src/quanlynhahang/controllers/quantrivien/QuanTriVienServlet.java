@@ -1,4 +1,4 @@
-package quanlynhahang.controllers;
+package quanlynhahang.controllers.quantrivien;
 
 import quanlynhahang.models.businessmodels.QuanTriVienService;
 import quanlynhahang.models.datamodels.NguoiDung;

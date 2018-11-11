@@ -1,4 +1,4 @@
-package quanlynhahang.controllers;
+package quanlynhahang.controllers.nguoidung;
 
 import quanlynhahang.models.businessmodels.NguoiDungService;
 import quanlynhahang.models.datamodels.NguoiDung;
@@ -9,7 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -59,7 +58,7 @@ public class SuaNguoiDungServlet extends HttpServlet {
             nguoiDung.setDienThoai(request.getParameter("txtDienThoai"));
             nguoiDung.setDiaChi(request.getParameter("txtDiaChi"));
             nguoiDung.setChoPhep(request.getParameter("chkChoPhep") != null);
-            nguoiDung.setQuanTriVien(request.getParameter("chkLaQtv") != null);
+            nguoiDung.setQuanTriVien(false);
             nguoiDung.setKichHoat(request.getParameter("chkKichHoat") != null);
 
             NguoiDungService service = new NguoiDungService();

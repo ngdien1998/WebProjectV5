@@ -1,6 +1,6 @@
-package quanlynhahang.controllers;
+package quanlynhahang.controllers.quantrivien;
 
-import quanlynhahang.models.businessmodels.NguoiDungService;
+import quanlynhahang.models.businessmodels.QuanTriVienService;
 import quanlynhahang.models.datamodels.NguoiDung;
 
 import javax.servlet.RequestDispatcher;
@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet(name = "XemNguoiDungServlet", urlPatterns = { "/admin/xem-nguoi-dung" })
-public class XemNguoiDungServlet extends HttpServlet {
+@WebServlet(name = "XemQuanTriVienServlet", urlPatterns = { "/admin/xem-quan-tri-vien" })
+public class XemQuanTriVienServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             String email = request.getParameter("email");
@@ -21,15 +21,15 @@ public class XemNguoiDungServlet extends HttpServlet {
                 response.setStatus(400);
                 return;
             }
-            NguoiDungService service = new NguoiDungService();
-            NguoiDung nguoiDung = service.get(email);
-            if (nguoiDung == null) {
+            QuanTriVienService service = new QuanTriVienService();
+            NguoiDung qtv = service.get(email);
+            if (qtv == null) {
                 response.setStatus(404);
                 return;
             }
-            request.setAttribute("nguoiDung", nguoiDung);
+            request.setAttribute("qtv", qtv);
 
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin-xem-nguoi-dung.jsp");
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin-xem-quan-tri-vien.jsp");
             dispatcher.forward(request, response);
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
